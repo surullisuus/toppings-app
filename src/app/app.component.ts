@@ -1,13 +1,30 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ThingspeakService } from './services/thingspeak.service';
+
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'] 
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'toppings-app';
+  feeds: any[] = [];
+
+  constructor(private thingspeakService: ThingspeakService) { }
+
+  ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData(): void {
+    this.thingspeakService.getData().subscribe(
+      data => {
+        this.feeds = data.feeds;
+      },
+      error => {
+        console.error('Error fetching data:', error);
+      }
+    );
+  }
 }
