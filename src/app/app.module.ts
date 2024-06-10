@@ -7,14 +7,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [AppComponent,
-    LoginComponent
+    LoginComponent,
+    FooterComponent,
+    HeaderComponent
       ],
   imports: [BrowserModule,
     CommonModule,
     FormsModule,
+    
     HttpClientModule,
            RouterModule.forRoot(routes),
            
