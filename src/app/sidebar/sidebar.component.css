@@ -10319,10 +10319,10 @@
   .topbar.navbar-light .navbar-nav .nav-item .nav-link:active {
     color: #858796;
   }
-  
+  /* largo del sidebar */
   .sidebar {
     width: 6.5rem;
-    min-height: 100vh;
+    min-height: 245vh;
   }
   
   .sidebar .nav-item {
