@@ -1,0 +1,15 @@
+#bar {
+    font-family: Arial, sans-serif;
+  }
+  
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+  
+  .bar {
+    font-size: 12px;
+    fill: #000;
+  }
