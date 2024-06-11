@@ -25,7 +25,7 @@ export class HomeComponent {
         },
         {
           imageSrc:
-            "../../../assets/Ennumeracion mesas.jpg",
+            "../../../assets/Logo Facebook rgb jpg.jpg",
           imageAlt: 'nature2',
         },
         {
