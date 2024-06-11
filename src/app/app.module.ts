@@ -13,8 +13,13 @@ import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [AppComponent,
-    LoginComponent
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    FooterComponent,
+    HeaderComponent,
+    HomeComponent,
+    SidebarComponent
       ],
   imports: [
   
