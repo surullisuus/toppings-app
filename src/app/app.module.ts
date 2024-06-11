@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { VentasComponent } from './ventas/ventas.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    SidebarComponent
+    SidebarComponent,
+    VentasComponent
       ],
   imports: [
   
