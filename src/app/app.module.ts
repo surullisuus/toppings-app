@@ -10,15 +10,20 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [AppComponent,
+  declarations: [
+    AppComponent,
     LoginComponent,
     FooterComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    SidebarComponent
       ],
-  imports: [BrowserModule,
+  imports: [
+  
+    BrowserModule,
     CommonModule,
     FormsModule,
     
