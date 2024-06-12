@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, ViewChild  } from '@angular/core';
 import { ThingspeakService } from '../services/thingspeak.service';
 import * as d3 from 'd3';
 import { interval, Subscription } from 'rxjs';
-import { AlertNivelComponent } from '../alert/alert-nivel/alert-nivel.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-temperatura',
@@ -10,7 +10,6 @@ import { AlertNivelComponent } from '../alert/alert-nivel/alert-nivel.component'
   styleUrls: ['./temperatura.component.css']
 })
 export class TemperaturaComponent implements OnInit, OnDestroy {
-  @ViewChild('alertComponent') alertComponent!: AlertNivelComponent;
 
   title = 'toppings-app';
   private svg: any;
@@ -65,10 +64,11 @@ export class TemperaturaComponent implements OnInit, OnDestroy {
           const latestValue = this.data[this.data.length - 1].value;
           console.log("Último valor de temperatura:", latestValue);
           if (latestValue >= 30) {
-            this.alertMessage = '¡Alerta! La temperatura superó los 30°C.';
-            this.showAlert = true;
-            this.alertComponent.showAlert();
-            console.log("showAlert:", this.showAlert, "alertMessage:", this.alertMessage);
+            Swal.fire({
+              icon: 'warning',
+              title: '¡Alerta!',
+              text: 'La temperatura superó los 30°C.',
+            });
           }
         } else {
           console.error('Los datos recibidos no contienen un array de feeds:', data);
