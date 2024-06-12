@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { VentasComponent } from './ventas/ventas.component';
+import { TemperaturaComponent } from './temperatura/temperatura.component';
 
 @NgModule({
   declarations: [
@@ -21,17 +22,18 @@ import { VentasComponent } from './ventas/ventas.component';
     HeaderComponent,
     HomeComponent,
     SidebarComponent,
-    VentasComponent
+    VentasComponent,
+    TemperaturaComponent
       ],
   imports: [
-  
+
     BrowserModule,
     CommonModule,
     FormsModule,
-    
+
     HttpClientModule,
            RouterModule.forRoot(routes),
-           
+
 ],
   providers: [],
   bootstrap: [AppComponent],
