@@ -8,12 +8,13 @@
         <div style="text-align: center;">
             <div style="display: flex; justify-content: center; margin-top: 10%;">
                 <app-alert-nivel #alertComponent [message]="'¡El nivel del topping es muy bajo debe llenarlo!'"></app-alert-nivel>
-                <button type="button" class="btn btn-danger btn-lg text-black"
-                style=" margin-left: 5%; width: 20%; height: 50px;" (click)="alertComponent.showAlert()">Alerta</button>
+                <h1>Sensor de nivel</h1>
                 
             </div>
 
-              
+            <div style="margin-top: 2%;">
+                <p>Si el sensor de nivel dectecta que esta vacio el tanque, mandara una alerta indicando que necesita ser llenado.</p>  
+            </div>
         </div>
     </div>
 </div>
