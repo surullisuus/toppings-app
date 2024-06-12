@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { VentasComponent } from './ventas/ventas.component';
+import { ControladorEncendidoComponent } from './controlador-encendido/controlador-encendido.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { VentasComponent } from './ventas/ventas.component';
     HeaderComponent,
     HomeComponent,
     SidebarComponent,
-    VentasComponent
+    VentasComponent,
+    ControladorEncendidoComponent
       ],
   imports: [
   
