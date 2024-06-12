@@ -1,7 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild  } from '@angular/core';
 import { ThingspeakService } from '../services/thingspeak.service';
 import * as d3 from 'd3';
 import { interval, Subscription } from 'rxjs';
+import { AlertNivelComponent } from '../alert/alert-nivel/alert-nivel.component';
 
 @Component({
   selector: 'app-temperatura',
@@ -9,6 +10,8 @@ import { interval, Subscription } from 'rxjs';
   styleUrls: ['./temperatura.component.css']
 })
 export class TemperaturaComponent implements OnInit, OnDestroy {
+  @ViewChild('alertComponent') alertComponent!: AlertNivelComponent;
+
   title = 'toppings-app';
   private svg: any;
   private margin = 50;
@@ -16,8 +19,10 @@ export class TemperaturaComponent implements OnInit, OnDestroy {
   private height = 400 - (this.margin * 2);
   private data: { date: Date, value: number }[] = [];
   private dataSubscription: Subscription | null = null;
-  private updateInterval: number = 5000; // Intervalo en milisegundos para actualización
+  private updateInterval: number = 1000; // Intervalo en milisegundos para actualización
   private maxDataPoints: number = 40; // Máximo número de puntos de datos en el gráfico
+  alertMessage: string = '';
+  showAlert: boolean = false;
 
   constructor(private thingspeakService: ThingspeakService) { }
 
@@ -58,8 +63,12 @@ export class TemperaturaComponent implements OnInit, OnDestroy {
 
           // Verificar si la temperatura es mayor que 30
           const latestValue = this.data[this.data.length - 1].value;
+          console.log("Último valor de temperatura:", latestValue);
           if (latestValue >= 30) {
-            alert('¡Alerta! La temperatura superó los 30°C.');
+            this.alertMessage = '¡Alerta! La temperatura superó los 30°C.';
+            this.showAlert = true;
+            this.alertComponent.showAlert();
+            console.log("showAlert:", this.showAlert, "alertMessage:", this.alertMessage);
           }
         } else {
           console.error('Los datos recibidos no contienen un array de feeds:', data);
@@ -71,6 +80,11 @@ export class TemperaturaComponent implements OnInit, OnDestroy {
     );
   }
 
+    // Método para cerrar la alerta desde el componente principal
+    closeAlert(): void {
+      this.showAlert = false;
+    }
+
   private createSvg(): void {
     this.svg = d3.select("figure#bar")
       .append("svg")
@@ -81,7 +95,6 @@ export class TemperaturaComponent implements OnInit, OnDestroy {
   }
 
   private drawLineChart(data: any[]): void {
-    console.log("Data:", data); // Verificar los datos en la consola
     // Verificar si los datos están vacíos o indefinidos
     if (!data || data.length === 0) {
       console.error("No hay datos para dibujar");
@@ -93,22 +106,22 @@ export class TemperaturaComponent implements OnInit, OnDestroy {
       .domain(d3.extent(data, d => d.date) as [Date, Date])
       .range([0, this.width]);
 
-// Dibujar el eje X en el DOM
-let xAxis = this.svg.selectAll(".x-axis")
-  .data([null]); // Vincular los datos a un único elemento
-xAxis = xAxis.enter().append("g")
-  .attr("class", "x-axis")
-  .attr("transform", `translate(0, ${this.height})`)
-  .merge(xAxis); // Fusionar selecciones de entrada y actualización
-xAxis.call(d3.axisBottom(x)
-  .tickFormat(d => d3.timeFormat("%H:%M")(d as Date)) // Formato de tiempo de las etiquetas
-  .ticks(10) // Número de etiquetas deseadas
-)
-  .selectAll("text")
-  .style("text-anchor", "end")
-  .attr("dx", "-.8em")
-  .attr("dy", ".15em")
-  .attr("transform", "rotate(-65)"); // Rotación de las etiquetas para mejor legibilidad
+    // Dibujar el eje X en el DOM
+    let xAxis = this.svg.selectAll(".x-axis")
+      .data([null]); // Vincular los datos a un único elemento
+    xAxis = xAxis.enter().append("g")
+      .attr("class", "x-axis")
+      .attr("transform", `translate(0, ${this.height})`)
+      .merge(xAxis); // Fusionar selecciones de entrada y actualización
+    xAxis.call(d3.axisBottom(x)
+      .tickFormat(d => d3.timeFormat("%H:%M")(d as Date)) // Formato de tiempo de las etiquetas
+      .ticks(10) // Número de etiquetas deseadas
+    )
+    .selectAll("text")
+    .style("text-anchor", "end")
+    .attr("dx", "-.8em")
+    .attr("dy", ".15em")
+    .attr("transform", "rotate(-65)"); // Rotación de las etiquetas para mejor legibilidad
 
     // Crear la escala de banda del eje Y
     const y = d3.scaleLinear()
@@ -122,6 +135,16 @@ xAxis.call(d3.axisBottom(x)
       .attr("class", "y-axis")
       .merge(yAxis); // Fusionar selecciones de entrada y actualización
     yAxis.call(d3.axisLeft(y));
+
+  // Añadir el nombre del eje Y
+  this.svg.append("text")
+    .attr("class", "y-axis-label")
+    .attr("text-anchor", "middle")
+    .attr("x", -this.height / 2)
+    .attr("y", -this.margin + 10)
+    .attr("transform", "rotate(-90)")
+    .style("font-size", "12px") // Ajustar el tamaño de la letra
+    .text("Temperatura (°C)");
 
     // Definir la línea
     const line = d3.line<any>()
