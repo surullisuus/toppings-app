@@ -10322,7 +10322,7 @@
   /* largo del sidebar */
   .sidebar {
     width: 6.5rem;
-    min-height: 245vh;
+    min-height: 150vh;
   }
   
   .sidebar .nav-item {
