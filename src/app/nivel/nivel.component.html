@@ -3,17 +3,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
 <div style="display: flex;">
     <app-sidebar></app-sidebar>
-    
+
     <div class="container mt-4">
         <div style="text-align: center;">
             <div style="display: flex; justify-content: center; margin-top: 10%;">
                 <app-alert-nivel #alertComponent [message]="'¡El nivel del topping es muy bajo debe llenarlo!'"></app-alert-nivel>
                 <h1>Sensor de nivel</h1>
-                
+
             </div>
 
             <div style="margin-top: 2%;">
-                <p>Si el sensor de nivel dectecta que esta vacio el tanque, mandara una alerta indicando que necesita ser llenado.</p>  
+                <p>Si el sensor de nivel detecta que esta vacio el tanque, mandará una alerta indicando que necesita ser llenado.</p>
             </div>
         </div>
     </div>

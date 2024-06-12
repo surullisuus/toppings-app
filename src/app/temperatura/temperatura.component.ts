@@ -61,8 +61,7 @@ export class TemperaturaComponent implements OnInit, OnDestroy {
           this.drawLineChart(this.data);
 
           // Verificar si la temperatura es mayor que 30
-          const latestValue = 30;
-          //const latestValue = this.data[this.data.length - 1].value;
+          const latestValue = this.data[this.data.length - 1].value;
           console.log("Último valor de temperatura:", latestValue);
           if (latestValue >= 30) {
             Swal.fire({
