@@ -7,15 +7,22 @@ import { Observable } from 'rxjs';
 })
 export class Esp8266Service {
 
-  private baseUrl: string = 'http://192.168.0.18'; // Reemplaza con la IP de tu ESP8266
+  private apiUrl: string = 'http://192.168.0.13'; // Reemplaza con la IP de tu ESP8266
 
   constructor(private http: HttpClient) { }
 
-  turnOn(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/on`);
+  getContador(): Observable<string> {
+    return this.http.get(`${this.apiUrl}/contador`, { responseType: 'text' });
   }
 
-  turnOff(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/off`);
+  turnOn(): Observable<string> {
+    return this.http.get(`${this.apiUrl}/on`, { responseType: 'text' });
+  }
+
+  turnOff(): Observable<string> {
+    return this.http.get(`${this.apiUrl}/off`, { responseType: 'text' });
+  }
+  getEstado(): Observable<string> {
+    return this.http.get(`${this.apiUrl}/estado`, { responseType: 'text' });
   }
 }
