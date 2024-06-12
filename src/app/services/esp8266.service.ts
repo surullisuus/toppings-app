@@ -25,4 +25,7 @@ export class Esp8266Service {
   getEstado(): Observable<string> {
     return this.http.get(`${this.apiUrl}/estado`, { responseType: 'text' });
   }
+  getTemperatura(): Observable<string> {
+    return this.http.get(`${this.apiUrl}/temperatura`, { responseType: 'text' });
+  }
 }
