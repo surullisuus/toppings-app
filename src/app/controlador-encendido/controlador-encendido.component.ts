@@ -15,10 +15,7 @@ export class ControladorEncendidoComponent {
     this.esp8266Service.turnOn().subscribe(response => {
       console.log(response);
       this.estado = true;
-      timer(3000).subscribe(() => {
-        // Apagar el dispositivo
-        this.estado = false;
-      });
+      
     });
   }
   
