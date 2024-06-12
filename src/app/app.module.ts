@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { VentasComponent } from './ventas/ventas.component';
+import { ControladorEncendidoComponent } from './controlador-encendido/controlador-encendido.component';
 import { TemperaturaComponent } from './temperatura/temperatura.component';
 
 @NgModule({
@@ -23,6 +24,7 @@ import { TemperaturaComponent } from './temperatura/temperatura.component';
     HomeComponent,
     SidebarComponent,
     VentasComponent,
+    ControladorEncendidoComponent,
     TemperaturaComponent
       ],
   imports: [

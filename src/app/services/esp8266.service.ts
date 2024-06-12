@@ -22,4 +22,7 @@ export class Esp8266Service {
   turnOff(): Observable<string> {
     return this.http.get(`${this.apiUrl}/off`, { responseType: 'text' });
   }
+  getEstado(): Observable<string> {
+    return this.http.get(`${this.apiUrl}/estado`, { responseType: 'text' });
+  }
 }
