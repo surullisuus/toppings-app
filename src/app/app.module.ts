@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { VentasComponent } from './ventas/ventas.component';
 import { ControladorEncendidoComponent } from './controlador-encendido/controlador-encendido.component';
+import { NivelComponent } from './nivel/nivel.component';
+import { AlertNivelComponent } from './alert/alert-nivel/alert-nivel.component';
 import { TemperaturaComponent } from './temperatura/temperatura.component';
 
 @NgModule({
@@ -25,6 +27,8 @@ import { TemperaturaComponent } from './temperatura/temperatura.component';
     SidebarComponent,
     VentasComponent,
     ControladorEncendidoComponent,
+    NivelComponent,
+    AlertNivelComponent,
     TemperaturaComponent
       ],
   imports: [
