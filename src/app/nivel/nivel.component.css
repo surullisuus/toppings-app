@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Altura de la ventana del navegador */
+}
+
+.card {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    background-color: #B23336;
+    border-radius: 10px; /* Usa px en lugar de cap */
+    padding: 20px; /* Añade algo de padding para darle espacio interior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra para darle profundidad */
+}
+
+.card h1 {
+    margin: 0; /* Elimina el margen predeterminado */
+}
