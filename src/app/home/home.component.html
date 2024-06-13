@@ -1,0 +1,38 @@
+<div style="display: flex;">
+    <app-sidebar></app-sidebar>
+    <div class="container-fluid">
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content" class="mt-4">
+                <div class="container-fluid">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>  
+                    </div>
+
+                    <div>
+                        <div  *ngIf="imagenes && imagenes.length > 0" class="carousel-container">
+                            <img *ngFor="let image of imagenes; let i = index" 
+                            [src]="image.imageSrc" [alt]="image.imageAlt"
+                            [ngClass]="{'image-active': selectedIndex === i}"
+                            class="fada">
+                          
+                            <div *ngIf="indicators" class="carousel-dat-container">
+                              <span *ngFor="let dat of imagenes; let i = index" 
+                              class="dat"
+                              [ngClass]="{'image-active': selectedIndex === i}"
+                              (click)="selectedImage(i)">
+                              </span>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+            <footer class="sticky-footer bg-white">
+                <div class="container ">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>

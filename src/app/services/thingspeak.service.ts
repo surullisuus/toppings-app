@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ThingspeakService {
-  private apiKey = 'R932FOYJST7ZIL43'; // Reemplaza con tu API Key
-  private channelID = '2572491'; // Reemplaza con tu Channel ID
+  private apiKey = 'FUZ3V069YNYI0HPS'; // Reemplaza con tu API Key
+  private channelID = '2562683'; // Reemplaza con tu Channel ID
 
   constructor(private http: HttpClient) { }
 

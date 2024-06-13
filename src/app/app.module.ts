@@ -9,20 +9,37 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { VentasComponent } from './ventas/ventas.component';
+import { ControladorEncendidoComponent } from './controlador-encendido/controlador-encendido.component';
+import { NivelComponent } from './nivel/nivel.component';
+import { AlertNivelComponent } from './alert/alert-nivel/alert-nivel.component';
+import { TemperaturaComponent } from './temperatura/temperatura.component';
 
 @NgModule({
-  declarations: [AppComponent,
+  declarations: [
+    AppComponent,
     LoginComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent,
+    SidebarComponent,
+    VentasComponent,
+    ControladorEncendidoComponent,
+    NivelComponent,
+    AlertNivelComponent,
+    TemperaturaComponent
       ],
-  imports: [BrowserModule,
+  imports: [
+
+    BrowserModule,
     CommonModule,
     FormsModule,
-    
+
     HttpClientModule,
            RouterModule.forRoot(routes),
-           
+
 ],
   providers: [],
   bootstrap: [AppComponent],
