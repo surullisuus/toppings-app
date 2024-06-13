@@ -4,9 +4,9 @@
 <div style="display: flex;">
     <app-sidebar></app-sidebar>
 
-    <div class="container mt-4">
+    <div class="container mt-4" >
         <div style="text-align: center;">
-            <div style="display: flex; justify-content: center; margin-top: 10%;">
+            <div style="display: flex; justify-content: center; margin-top: 40%;">
                 <app-alert-nivel #alertComponent [message]="'¡El nivel del topping es muy bajo debe llenarlo!'"></app-alert-nivel>
                 <h1>Sensor de nivel</h1>
 
@@ -17,7 +17,7 @@
             </div>
 
             <div class="container"> 
-                <div class="card">
+                <div class="card" style=" margin-top: 0%;">
                     <h1>Estado: </h1>
                     <h1 *ngIf="estado == 1" style="color: green;">LLENO</h1>
                     <h1 *ngIf="estado == 0" style="color: rgb(255, 255, 255);">VACIO</h1>
