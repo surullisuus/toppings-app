@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objetoIoT id="192.168.0.13">
+   <gateway>
+      <propiedades>
+         <nombre>ESP8266</nombre>
+         <modelo>nodemcu 12E</modelo>
+         <fabricante>EspressIf</fabricante>
+      </propiedades>
+      <recursos>
+         <recursoIoT>
+            <tipo>sensor</tipo>
+            <nombre>LM35</nombre>
+            <senal>analoga</senal>
+            <voltaje rangoinicial="-55" rangofinal="150" />
+         </recursoIoT>
+         <recursoIoT>
+            <tipo>sensor</tipo>
+            <nombre>sensor de proximidad capacitivo</nombre>
+            <senal>analoga</senal>
+            <voltaje rangoinicial="6" rangofinal="36" />
+            <caracteristica  distanciaSensorial="15" />
+         </recursoIoT>
+         <recursoIoT>
+            <tipo>actuador</tipo>
+            <nombre>motor</nombre>
+            <caracteristica  voltaje="5" />
+         </recursoIoT>
+      </recursos>
+   </gateway>
+</objetoIoT>
+
+
+
