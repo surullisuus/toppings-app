@@ -1,87 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<style>
+  /* Estilos generales */
 
-<app-header></app-header>
-<section class="vh-100">
-  <div class="container-fluid h-custom">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="assets/image.png"
-          class="img-fluid" alt="Sample image">
-      </div>
-      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form>
-          
-          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-            <p class="lead fw-normal mb-0 me-3">Sign in with</p>
-            <a href="https://www.facebook.com/profile.php?id=100063554441247&sk=about" type="button" data-mdb-button-init data-mdb-ripple-init class="btn bg-custom-color btn-floating mx-1">
-              <i class="fab fa-facebook-f text-white"></i>
-            </a>
+  @media (max-width: 768px) {
+    /* Estilos específicos para pantallas más pequeñas (por ejemplo, tablets y móviles) */
+    .col-md-9, .col-lg-6, .col-xl-5 {
+      /* Ajusta el ancho de las columnas o los elementos según sea necesario */
+      width: 100%;
+    }
+  }
 
-            <a  type="button" href="https://www.instagram.com/ricoletto_heladeria/" data-mdb-button-init data-mdb-ripple-init class="btn bg-custom-color btn-floating mx-1">
-              <i class="fab fa-instagram text-white"></i>
-            </a>
-          </div>
+  @media (min-width: 992px) {
+    /* Estilos específicos para pantallas más grandes (por ejemplo, escritorios) */
+    .col-md-9, .col-lg-6, .col-xl-5 {
+      /* Restaura los estilos originales o realiza ajustes específicos */
+      width: auto;
+    }
+  }
+</style>
 
-          <div class="divider d-flex align-items-center my-4">
-            <p class="text-center fw-bold mx-3 mb-0">Or</p>
-          </div>
 
-          <!-- Email input -->
-          <div data-mdb-input-init class="form-outline mb-4">
-            <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter a valid email address" />
-            <label class="form-label" for="form3Example3">Email address</label>
-          </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión - Ricoletto Heladería</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
 
-          <!-- Password input -->
-          <div data-mdb-input-init class="form-outline mb-3">
-            <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Enter password" />
-            <label class="form-label" for="form3Example4">Password</label>
-          </div>
+<body>
 
-          <div class="d-flex justify-content-between align-items-center">
-            <!-- Checkbox -->
-            <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-              <label class="form-check-label" for="form2Example3">
-                Remember me
-              </label>
+  <!-- Encabezado -->
+  <app-header></app-header>
+
+  <section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="assets/image.png" class="img-fluid" alt="Imagen de muestra">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form (ngSubmit)="onSubmit()">
+            
+            <!-- Botones de inicio de sesión con redes sociales -->
+            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+              <p class="lead fw-normal mb-0 me-3">Ingresa con</p>
+              <a href="https://www.facebook.com/profile.php?id=100063554441247&sk=about"
+                class="btn bg-custom-color btn-floating mx-1" data-mdb-button-init data-mdb-ripple-init>
+                <i class="fab fa-facebook-f text-white"></i>
+              </a>
+              <a href="https://www.instagram.com/ricoletto_heladeria/"
+                class="btn bg-custom-color btn-floating mx-1" data-mdb-button-init data-mdb-ripple-init>
+                <i class="fab fa-instagram text-white"></i>
+              </a>
             </div>
-            <a href="#!" class="text-body">Forgot password?</a>
-          </div>
 
-          <div class="text-center text-lg-start mt-4 pt-2">
-            <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn bg-custom-color btn-lg text-white"
-              style="padding-left: 2.5rem; padding-right: 2.5rem; " routerLink =  "/home"> Login</button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
-                class="link-danger">Register</a></p>
-          </div>
+            <!-- Separador -->
+            <div class="divider d-flex align-items-center my-4">
+              <p class="text-center fw-bold mx-3 mb-0">O</p>
+            </div>
 
-        </form>
+            <!-- Entrada de correo electrónico -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="email" id="form3Example3" class="form-control form-control-lg"
+                placeholder="Ingresa una dirección válida" [(ngModel)]="email" name="email"/>
+              <label class="form-label" for="form3Example3">Correo electrónico</label>
+            </div>
+            
+            <div data-mdb-input-init class="form-outline mb-3">
+              <input type="password" id="form3Example4" [(ngModel)]="password" class="form-control form-control-lg"
+                placeholder="Ingresa tu contraseña" name="password" />
+              <label class="form-label" for="form3Example4">Contraseña</label>
+            </div>
+            
+
+            <!-- Recordar sesión y enlace de contraseña olvidada -->
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="form-check mb-0">
+                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                <label class="form-check-label" for="form2Example3">
+                  Recordarme
+                </label>
+              </div>
+              <a href="#!" class="text-body">¿Olvidó su contraseña?</a>
+            </div>
+
+            <!-- Botón de inicio de sesión -->
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn bg-custom-color btn-lg text-white"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresa</button>
+              <p class="small fw-bold mt-2 pt-1 mb-0">¿No tienes una cuenta? <a href="#!" class="link-danger">Regístrate</a></p>
+            </div>
+
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-  <div
-    class=" bg-custom-color d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 ">
-    <!-- Copyright -->
-    <div class="  text-white mb-3 mb-md-0">
-      Copyright © 2020. All rights reserved.
-    </div>
-    <!-- Copyright -->
 
-    <!-- Right -->
-    <div>
-      <a href="https://www.facebook.com/profile.php?id=100063554441247&sk=about" class="text-white me-4">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://www.instagram.com/ricoletto_heladeria/" class="text-white me-4">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </div>
-    <!-- Right -->
-  </div>
-</section>
+    <!-- Pie de página -->
+    <div class="bg-custom-color d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5">
+      <!-- Copyright -->
+      <div class="text-white mb-3 mb-md-0">
+        Copyright © 2020. All rights reserved.
+      </div>
 
-<app-footer></app-footer>
+      <!-- Redes sociales -->
+      <div>
+        <a href="https://www.facebook.com/profile.php?id=100063554441247&sk=about" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/ricoletto_heladeria/" class="text-white me-4">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Componente del encabezado -->
+  <app-footer></app-footer>
+
+</body>
+
+</html>
