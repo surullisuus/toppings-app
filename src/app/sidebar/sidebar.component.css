@@ -10322,7 +10322,7 @@
   /* largo del sidebar */
   .sidebar {
     width: 6.5rem;
-    min-height: 150vh;
+    min-height: 110vh;
   }
   
   .sidebar .nav-item {
@@ -10478,6 +10478,7 @@
     padding: 0 1rem;
     font-weight: 800;
     font-size: 0.65rem;
+    color: #eddae0;
   }
   
   .sidebar .sidebar-card {
@@ -10635,7 +10636,7 @@
   }
   
   .sidebar-light .sidebar-heading {
-    color: #b7b9cc;
+    color: #eddae0;
   }
   
   .sidebar-light .nav-item .nav-link {
